@@ -1,6 +1,7 @@
 require './lib/item'
 require './lib/vendor'
 require './lib/market'
+require 'date'
 
 describe Market do
   describe 'initialize' do
@@ -113,6 +114,23 @@ describe Market do
 
     it 'can list the names of all items the vendors have in stock, sorted alphabetically' do
       expect(@market.sorted_item_list).to eq(["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"])
+    end
+  end
+
+  describe 'Selling items' do
+    before do
+      @item1 = Item.new({name: 'Peach', price: "$0.75"})
+      @item2 = Item.new({name: 'Tomato', price: '$0.50'})
+      @item3 = Item.new({name: "Peach-Raspberry Nice Cream", price: "$5.30"})
+      @item4 = Item.new({name: "Banana Nice Cream", price: "$4.25"})
+      @item5 = Item.new({name: 'Onion', price: '$0.25'})
+      @market = Market.new("South Pearl Street Farmers Market")
+    end
+
+    it 'has a date that its created' do
+      allow(@market).to receive(:date).and_return('24/02/2020')
+
+      expect(@market.date).to eq('24/02/2020')
     end
   end
 end

@@ -1,9 +1,10 @@
 class Market
-  attr_reader :name, :vendors
+  attr_reader :name, :vendors, :date
 
   def initialize(name)
     @name = name
     @vendors = []
+    @date = Date.today.strftime("%d/%m/%Y")
   end
 
   def add_vendor(vendor)
@@ -25,7 +26,7 @@ class Market
   def total_inventory
     items_hash = {}
     @vendors.each do |vendor|
-      vendor.inventory.map do |item, quantity|
+      vendor.inventory.each do |item, quantity|
         if !items_hash[item]
           items_hash[item] = {quantity: 0, vendors: []}
           items_hash[item][:quantity] += quantity
