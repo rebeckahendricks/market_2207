@@ -46,4 +46,10 @@ class Market
     end
     overstocked
   end
+
+  def sorted_item_list
+    total_inventory.keys.map do |item|
+      item.name
+    end.sort
+  end
 end

@@ -111,7 +111,7 @@ describe Market do
       expect(@market.overstocked_items).to eq([@item1])
     end
 
-    xit 'can list the names of all items the vendors have in stock, sorted alphabetically' do
+    it 'can list the names of all items the vendors have in stock, sorted alphabetically' do
       expect(@market.sorted_item_list).to eq(["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"])
     end
   end
