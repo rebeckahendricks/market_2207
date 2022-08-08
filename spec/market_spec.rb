@@ -8,15 +8,15 @@ describe Market do
       @market = Market.new("South Pearl Street Farmers Market")
     end
 
-    xit 'exists' do
+    it 'exists' do
       expect(@market).to be_instance_of(Market)
     end
 
-    xit 'has a name' do
+    it 'has a name' do
       expect(@market.name).to eq("South Pearl Street Farmers Market")
     end
 
-    xit 'has no vendors by default' do
+    it 'has no vendors by default' do
       expect(@market.vendors).to eq([])
     end
   end
