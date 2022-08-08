@@ -27,11 +27,11 @@ describe Vendor do
       @item2 = Item.new({name: 'Tomato', price: '$0.50'})
     end
 
-    xit 'can check the stock of a certain item' do
+    it 'can check the stock of a certain item' do
       expect(@vendor.check_stock(@item1)).to eq(0)
     end
 
-    xit 'can stock an item and check its inventory' do
+    it 'can stock an item and check its inventory' do
       @vendor.stock(@item1, 30)
 
       expect(@vendor.inventory).to eq({@item1 => 30})
@@ -42,7 +42,7 @@ describe Vendor do
       expect(@vendor.inventory).to eq({@item1 => 55, @item2 => 12})
     end
 
-    xit 'can check the stock of a certain item' do
+    it 'can check the stock of a certain item' do
       @vendor.stock(@item1, 30)
 
       expect(@vendor.check_stock(@item1)).to eq(30)
