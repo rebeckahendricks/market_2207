@@ -92,7 +92,7 @@ describe Market do
       @market.add_vendor(@vendor3)
     end
 
-    xit 'can display its total inventory' do
+    it 'can display its total inventory' do
       expected = {
         @item1 => { quantity: 100,
                     vendors: [@vendor1, @vendor3]},

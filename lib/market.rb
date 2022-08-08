@@ -21,4 +21,21 @@ class Market
       vendor.inventory.include?(item)
     end
   end
+
+  def total_inventory
+    items_hash = {}
+    @vendors.each do |vendor|
+      vendor.inventory.map do |item, quantity|
+        if !items_hash[item]
+          items_hash[item] = {quantity: 0, vendors: []}
+          items_hash[item][:quantity] += quantity
+          items_hash[item][:vendors] << vendor
+        else
+          items_hash[item][:quantity] += quantity
+          items_hash[item][:vendors] << vendor
+        end
+      end
+    end
+    items_hash
+  end
 end
