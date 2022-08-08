@@ -38,4 +38,12 @@ class Market
     end
     items_hash
   end
+
+  def overstocked_items
+    overstocked = []
+    total_inventory.each do |item, info|
+      overstocked << item if info[:quantity] > 50 && info[:vendors].count > 1
+    end
+    overstocked
+  end
 end
