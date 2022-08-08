@@ -148,14 +148,14 @@ describe Market do
       expect(@market.date).to eq('24/02/2020')
     end
 
-    xit 'can sell items' do
+    it 'can sell items' do
+      
       expect(@market.sell(@item1, 200)).to eq(false)
       expect(@market.sell(@item5, 1)).to eq(false)
       expect(@market.sell(@item4, 5)).to eq(true)
-
       expect(@vendor2.check_stock(@item4)).to eq(45)
 
-      expect(@vendor.sell(@item1, 40)).to eq(true)
+      expect(@market.sell(@item1, 40)).to eq(true)
 
       expect(@vendor1.check_stock(@item1)).to eq(0)
       expect(@vendor3.check_stock(@item1)).to eq(60)

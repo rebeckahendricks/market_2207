@@ -53,4 +53,21 @@ class Market
       item.name
     end.sort
   end
+
+  def sell(item, quantity)
+    if total_inventory[item] && total_inventory[item][:quantity] > quantity
+      @vendors.each do |vendor|
+        quantity_1 = quantity
+        if vendor.inventory.include?(item) && vendor.inventory[item] >= quantity_1
+          vendor.inventory[item] -= quantity_1
+        elsif vendor.inventory.include?(item) && vendor.inventory[item] < quantity_1
+          vendor.inventory[item] -= vendor.inventory[item]
+          quantity_1 -= vendor.inventory[item]
+        end
+      end
+      true
+    else
+      false
+    end
+  end
 end
