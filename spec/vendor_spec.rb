@@ -52,7 +52,7 @@ describe Vendor do
       expect(@vendor.check_stock(@item1)).to eq(55)
     end
 
-    describe 'potentail income' do
+    describe 'potential income' do
       before do
         @vendor1 = Vendor.new("Rocky Mountain Fresh")
         @item1 = Item.new({name: 'Peach', price: "$0.75"})
@@ -70,7 +70,7 @@ describe Vendor do
         @vendor3.stock(@item1, 65)
       end
 
-      xit 'can calculate its potential revenue' do
+      it 'can calculate its potential revenue' do
         expect(@vendor1.potential_revenue).to eq(29.75)
         expect(@vendor2.potential_revenue).to eq(345.00)
         expect(@vendor3.potential_revenue).to eq(48.75)
